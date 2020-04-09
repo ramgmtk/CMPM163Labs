@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab 2: Intro to Three.js Part 1</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="../three.js-master/build/three.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera(75, 
+			window.innerWidth/window.innerHeight, 0.1, 1000);
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+
+			var geometry = new THREE.BoxGeometry();
+			var material = new THREE.MeshBasicMaterial( {color: 0xFACADE} );
+     			var cube = new THREE.Mesh(geometry, material);
+			scene.add(cube);
+			camera.position.z = 5; //this moves the camera towards the viewer
+			
+			var geometry_two = new THREE.BoxGeometry();
+			var material_two = new THREE.MeshBasicMaterial( {color: 0x00FFFF} );
+			var cube_two = new THREE.Mesh(geometry_two, material_two);
+			scene.add(cube_two);
+			cube_two.position.x = 2;
+
+			var geometry_three = new THREE.BoxGeometry();
+			var material_three = new THREE.MeshBasicMaterial( {color: 0x39FF14} );
+			var cube_three = new THREE.Mesh(geometry_three, material_three);
+			scene.add(cube_three);
+			cube_three.position.x = -2;
+
+			function animate() {
+				geometry.rotateX(0.01);
+				geometry.rotateY(0.01);
+				geometry_two.rotateX(0.05);
+				geometry_three.rotateY(0.05);
+				requestAnimationFrame(animate);
+				renderer.render(scene, camera);
+			}
+			animate();
+
+		</script>
+	</body>
+</html>
