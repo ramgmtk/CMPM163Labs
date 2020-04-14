@@ -27,6 +27,7 @@
 			var fshader, vshader;
 
 			var geometry1, material1, mesh1;
+			var geometry2, material2, mesh2;
 
 			function addCoolCube() {
 				if(count == 2) {
@@ -37,7 +38,7 @@
 							THREE.Color(0x74ebd5)}
 	 				};
 					geometry1 = new THREE.BoxGeometry(1, 1, 1);
-					material1 =  new THREE.ShaderMaterial({
+					material1 = new THREE.ShaderMaterial({
 						uniforms: uniforms,
 						fragmentShader: fshader,
 						vertexShader: vshader,
@@ -49,6 +50,26 @@
 				}	
 			}
 
+			function addHotCube() {
+				if(count == 2) { //check to see if frag and vert are loaded
+					let uniforms2 = {
+						colorB: {type: 'vec3', value: new 
+							THREE.Color(0xC47801)},
+						colorA: {type: 'vec3', value: new 
+							THREE.Color(0xFA3232)}
+	 				};
+					geometry2 = new THREE.BoxGeometry(); //1 by default
+					material2 = new THREE.ShaderMaterial({
+						uniforms: uniforms2,
+						fragmentShader: fshader,
+						vertexShader: vshader,
+						precision: "mediump"});
+					mesh2 = new THREE.Mesh(geometry2, material2);
+					mesh2.position.y = 2;
+					scene.add(mesh2);
+				}
+			}
+
 			loader.load('shaders/vertexShader.vert',
 				// onLoad callback
 				function (data) {
@@ -56,6 +77,7 @@
 					vshader = data;
 					count += 1;
 					addCoolCube(); // we will write this method
+					addHotCube();
 				},
 				// onProgress callback
 				function (xhr) {
@@ -73,6 +95,7 @@
 					fshader = data;
 					count += 1;
 					addCoolCube(); // we will write this method
+					addHotCube();
 				},
 				// onProgress callback
 				function (xhr) {
@@ -109,6 +132,9 @@
 				if(geometry1) {
 					geometry1.rotateX(0.01);
 					geometry1.rotateY(0.01);
+				}
+				if (geometry2) {
+					geometry2.rotateX(0.05);
 				}
 				renderer.render(scene, camera);
 			}
