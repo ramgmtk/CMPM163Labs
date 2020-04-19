@@ -23,8 +23,9 @@
 			//additional thigns for part 2
 			THREE.Cache.enabled = true;
 			var count = 0;
+			var count_two = 0;
 			var loader = new THREE.FileLoader();
-			var fshader, vshader;
+			var fshader, vshader, fshader_two, vshader_two;
 
 			var geometry1, material1, mesh1;
 			var geometry2, material2, mesh2;
@@ -51,7 +52,7 @@
 			}
 
 			function addHotCube() {
-				if(count == 2) { //check to see if frag and vert are loaded
+				if(count_two == 2) { //check to see if frag and vert are loaded
 					let uniforms2 = {
 						colorB: {type: 'vec3', value: new 
 							THREE.Color(0xC47801)},
@@ -61,8 +62,8 @@
 					geometry2 = new THREE.BoxGeometry(); //1 by default
 					material2 = new THREE.ShaderMaterial({
 						uniforms: uniforms2,
-						fragmentShader: fshader,
-						vertexShader: vshader,
+						fragmentShader: fshader_two,
+						vertexShader: vshader_two,
 						precision: "mediump"});
 					mesh2 = new THREE.Mesh(geometry2, material2);
 					mesh2.position.y = 2;
@@ -88,6 +89,20 @@
 					console.error('An error happened');
 				});
 
+			loader.load('shaders/vertexShader_v2.vert',
+				function(data) {
+					console.log(data);
+					vshader_two = data;
+					count_two += 1;
+					addHotCube();
+				},
+				function(xhr) {
+					console.log((xhr.loaded/xhr.total *100) + '% loaded');
+				},
+				function(err) {
+					console.error('An error occured loading vertshaderv2');
+				});
+
 			loader.load('shaders/fragmentShader.frag',
 				// onLoad callback
 				function (data) {
@@ -95,7 +110,6 @@
 					fshader = data;
 					count += 1;
 					addCoolCube(); // we will write this method
-					addHotCube();
 				},
 				// onProgress callback
 				function (xhr) {
@@ -104,6 +118,20 @@
 				// onError callback
 				function (err) {
 					console.error('An error happened');
+				});
+
+			loader.load('shaders/fragmentShader_v2.frag',
+				function(data) {
+					console.log(data);
+					fshader_two = data;
+					count_two += 1;
+					addHotCube();
+				},
+				function(xhr) {
+					console.log((xhr.loaded/xhr.total *100) + '% loaded');
+				},
+				function(err) {
+					console.error('An error occured loading fragshaderv2');
 				});
 
 			// setup the cube
