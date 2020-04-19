@@ -8,6 +8,8 @@ Left Most Box: Done using three.js's toon mesh. Messed around with some values a
 Middle box: Done using three.js's phong mesh. Specular reflection of the box is green.  
 Middle Top box: Done using the labs vertex shader, and my own fragment shader. The shader mixes colors interpolated between the values of 0 and 1 using the sin function as the method. In this case there is a red line through the vertical axis of the cube.  
 Right Most Box: Middle Top box: Done using this labs own vertex/fragment shaders that emulated interpolation. Uses two selected colors and interpolates the surface and edges of the cube. In this case Blue and Pink. (by means of a fragment shader)  
+CREDIT for the sin function interpolation:  
+https://thebookofshaders.com/glossary/?search=mix  
 
 Lab2 Links:
 Part 1: https://drive.google.com/file/d/1Hw4BlqXoqO094mhvTNWDlyMn55mdEmJ7/view?usp=sharing  
