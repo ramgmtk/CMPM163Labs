@@ -63,7 +63,7 @@
 					material2 = new THREE.ShaderMaterial({
 						uniforms: uniforms2,
 						fragmentShader: fshader_two,
-						vertexShader: vshader_two,
+						vertexShader: vshader,
 						precision: "mediump"});
 					mesh2 = new THREE.Mesh(geometry2, material2);
 					mesh2.position.y = 2;
@@ -89,7 +89,7 @@
 					console.error('An error happened');
 				});
 
-			loader.load('shaders/vertexShader_v2.vert',
+			/*loader.load('shaders/vertexShader_v2.vert',
 				function(data) {
 					console.log(data);
 					vshader_two = data;
@@ -101,7 +101,7 @@
 				},
 				function(err) {
 					console.error('An error occured loading vertshaderv2');
-				});
+				});*/
 
 			loader.load('shaders/fragmentShader.frag',
 				// onLoad callback
@@ -124,7 +124,7 @@
 				function(data) {
 					console.log(data);
 					fshader_two = data;
-					count_two += 1;
+					count_two += 2;
 					addHotCube();
 				},
 				function(xhr) {
