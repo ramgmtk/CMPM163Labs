@@ -10,7 +10,7 @@ Modifcations made:
 The skybox  
 	- I used the original textures provided by the karting mod, and adjusted the tint to create a new skybox.  
 Postprocessing  
-	- I changed the postprocessing effect to the 'dreamlike' effect.
+	- I changed the postprocessing effect to the 'dreamlike' effect.  
 Non-graphical related changes  
 	- I added a trail to the wheels of the kart
 	- I changed the colors of both the kart and the player
