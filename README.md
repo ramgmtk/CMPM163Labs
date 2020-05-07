@@ -6,8 +6,8 @@ Lab 6
 I chose to do Part 1 of the assignment to get even more experience with Unity.  
 
 i. Screenshot:  
-![](lab6/Capture.JPEG)  
-![](lab6/UnityIDE.JPEG)  
+![](lab6/Capture.JPG)  
+![](lab6/UnityIDE.JPG)  
 
 ii. Definition of lights  
 Point Light: Behaves like a light bulb illuminating objects with respect to its position.  
