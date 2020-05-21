@@ -20,7 +20,7 @@ ii. My rendition:
 iii. 
 When I thought about building the city on water I realized I could take advantage of  
 Holistic3D's algorithm for creating roads in the city. I essentially replaced the calls  
-that placed down the streets wtih nothing, so that the place from underneath would show through  
+that placed down the streets with nothing, so that the plane from underneath would show through  
 and emulate water.  I also adjusted some minor values to affect the frequency of building verses water.  
 The effect that comes through is a city that seemingly has water ways as well as ponds of water.  
 
