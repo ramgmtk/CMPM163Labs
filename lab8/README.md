@@ -12,7 +12,7 @@ i.  Inspired City: Venice
 ![](Venice.jpg)  
 
 ii. My rendition:  
-![](TownBuiltOnWater.jpg)
+![](TownBuiltOnWater.JPG)
 
 iii. 
 When I thought about building the city on water I realized I could take advantage of  
